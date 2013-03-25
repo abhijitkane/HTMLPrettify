@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "HTMLPrettify",
+  "description": "This extension indents HTML code.",
+  "version": "1.0",
+
+  "app":{
+        "launch":{
+            "local_path":"index.htm"
+        }
+  }
+
+ 
+}
