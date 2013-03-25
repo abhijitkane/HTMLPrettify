@@ -1,0 +1,36 @@
+#topNavBar {
+	background-color: #333;	
+	color:#ddd;
+	position: relative;
+	padding: 10px;
+}
+
+#topNavBar.min {
+	min-height: 1px;
+	max-height: 1px;
+}
+
+#topNavBar.max {
+	min-height: 80px;
+	max-height: 80px;
+}
+#topNavBar .optContent {
+	display:none;
+}
+
+#topNavBar>#pullHandle {
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	left: 80%;
+	height: 20px;
+	position: absolute;
+	bottom:-24px;
+	padding-top: 5px;
+	background-color: #333;
+	text-align: center;
+	font-family: helvetica;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+	padding-bottom: 5px;
+}

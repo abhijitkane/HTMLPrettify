@@ -1,5 +1,7 @@
 var re=/\n[\s]*\n/g;
 var res=/[\s]+/g;
+var currMin=1;
+
 function getTabs(num) {
 	var str="";
 	for(var i=0;i<num;i++) str+="\t";
@@ -34,12 +36,8 @@ function prettifyHTML(old1) {
 
 			if(inTagName==1 && (line[j]==" " || line[j]=="/" || line[j]==">")) {
 				inTagName=0;
-				//if(tagname!="")	alert("found tag: "+tagname);
-			}
-
-
-
-			
+				if(tagname!="")	console.log("Reached tag: "+tagname)
+			}		
 
 
 			if(line[j]=='<') {				
