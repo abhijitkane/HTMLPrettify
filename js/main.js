@@ -24,7 +24,7 @@ function prettifyHTML(old1) {
 	op="";
 	var tagname="";
 	var inTagName;
-	var singleTags=["<br","<input","<hr","<!--"];
+	var singleTags=["<br","<input","<hr","<!--","<link","<meta"];
 	var insq=0,indq=0;
 	for(var i=0;i<lines;i++) {
 		line=old[i];
@@ -34,7 +34,7 @@ function prettifyHTML(old1) {
 			if(line[j]=="'") insq=1-insq;
 			else if(line[j]=='"') indq=1-indq;
 
-			if(inTagName==1 && (line[j]==" " || line[j]=="/" || line[j]==">")) {
+			if(inTagName==1 && (line[j]==" " || line[j]=="/" || line[j]==">" || tagname=="<!--")) {
 				inTagName=0;
 				if(tagname!="")	console.log("Reached tag: "+tagname)
 			}		
@@ -59,9 +59,9 @@ function prettifyHTML(old1) {
 				if(j>0 && line[j-1]!='/') {
 					console.log("Checking tagname: "+tagname);
 					if(singleTags.indexOf(tagname)==-1)
-					indent++;
+						indent++;
 				}
-				if(tot=='c' && tagname!="<!--") indent--;
+				if(tot=='c' && singleTags.indexOf(tagname)==-1) indent--;
 				op+=line[j];
 				op+="\n"+getTabs(indent);
 			}
