@@ -9,7 +9,10 @@
         "launch":{
             "local_path":"index.htm"
         }
-  }
+  },
 
+  "permissions": [
+    "storage"
+  ]
  
 }

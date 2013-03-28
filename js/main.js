@@ -1,12 +1,11 @@
 var re=/\n[\s]*\n/g;
 var res=/[\s]+/g;
 var currMin=1;
+var singleTagsName;
 
-function getTabs(num) {
-	var str="";
-	for(var i=0;i<num;i++) str+="\t";
-	return str;
-}
+
+
+
 
 function prettifyHTML(old1) {
 	old1 = old1.replace(res, ' ');
@@ -24,7 +23,7 @@ function prettifyHTML(old1) {
 	op="";
 	var tagname="";
 	var inTagName;
-	var singleTags=["<br","<input","<hr","<!--","<link","<meta"];
+	//var singleTags=["<br","<input","<hr","<!--","<link","<meta"];
 	var insq=0,indq=0;
 	for(var i=0;i<lines;i++) {
 		line=old[i];
@@ -78,8 +77,45 @@ function prettifyHTML(old1) {
 	return op;
 }
 
-$("#phtml").click(function() {
-		$("#thtml").val(prettifyHTML($("#thtml").val()));
-});
+function addTagList() {
+	var ts=[];
+	var str="";
+	var temp;
+	var id=0;
+	$.each(singleTagsName,function(i,v) {
+		temp=v.substring(1);
+		if(temp!="!--") {
+			ts.push(
+				{
+					'id':(id++),
+					'text':v.substring(1)
+				}
+			);
+			str+=v.substring(1)+",";
+		}
+	});
+	str=str.substring(0,str.length-1);	
+	$("input#singleTags").val(str);
+	$("input#singleTags").select2({tags:ts,tokenSeparators: [",", " "]});
+	$("input#singleTags").on('change', function(e) {
+    	updateTags(e.val);
+    });
+
+}
+
+function updateTags(newarr) {
+
+	var una = [];
+	$.each(newarr, function(i, el){
+	    if($.inArray(el, una) === -1) una.push(el);
+	});
+
+	var na="<!--,";
+	$.each(una,function(i,v) {
+		na+="<"+v+",";
+	});
+	na=na.substring(0,na.length-1);
+	setItem("singleTags",na);
+}
 
 

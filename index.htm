@@ -3,7 +3,9 @@
 <head>
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link href="css/style.css" rel="stylesheet" media="screen">
+	<link href="select2/select2.css" rel="stylesheet" media="screen">
 	<script src="js/jquery.js"></script>
+	<script src="js/storage.js"></script>
 	<title>HTMLPrettify</title>
 </head>
 
@@ -11,9 +13,11 @@
 	<div id="topNavBar" class="min">
 
 		<table class="optContent">
-			<tr><td>Options</td></tr>
-			<tr><td>Options</td></tr>
-			<tr><td>Options</td></tr>
+			<col style="width:8%">
+            <col style="width:92%">
+			
+			<tr><td>Single Tags</td><td><input type="hidden" id="singleTags"></td></tr>
+			
 		</table>
 
 		<span id="pullHandle" class="min"><i class="icon-chevron-down icon-white"></i>Options</span>
@@ -28,6 +32,7 @@
 	</div>
 
 	<script src="js/main.js"></script>
+	<script src="select2/select2.min.js"></script>
 	<script src="js/eventBindings.js"></script>
 </body>
 </html>

@@ -25,3 +25,27 @@ $("#pullHandle").click(function() {
 	}
 	
 });
+
+
+
+$("#phtml").click(function() {
+		$("#thtml").val(prettifyHTML($("#thtml").val()));
+});
+
+
+$(function() {
+	//CHECK IF FIRST INSTALL EXISTS
+	if(getItem("firstInstall")==null) {
+		console.log("this is the first install. Setting single array...");
+		singleTagsName=["<area", "<base", "<br", "<col", "<command", "<embed", "<hr", "<img", "<input",
+ 		"keygen", "<link", "<meta", "<param", "<source", "<track", "<wbr","<!--"];
+
+ 		setItem("singleTags",singleTagsName);
+ 		setItem("firstInstall","done");
+	}
+	else {
+		singleTagsName = getItem("singleTags").split(",");		
+	}
+
+	addTagList();
+});

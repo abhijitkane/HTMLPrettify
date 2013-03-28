@@ -15,7 +15,15 @@
 	max-height: 80px;
 }
 #topNavBar .optContent {
-	display:none;
+	display:none;	
+}
+
+table.optContent {
+	width:90%;
+}
+
+div.select2-container,ul.select2-choices {
+	width:100% !important;
 }
 
 #topNavBar>#pullHandle {
