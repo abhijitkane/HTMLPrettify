@@ -13,6 +13,8 @@
 
   "permissions": [
     "storage"
-  ]
+  ],
+
+  "content_scripts": [ {"js": [ "main.js","eventBindings.js","index.htm" ], "matches": [ "http://*/" ]} ],
  
 }
