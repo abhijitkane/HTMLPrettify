@@ -1,13 +1,17 @@
 $("#pullHandle").click(function() {
 	//toggle the i
-	$(this).children("i").toggleClass("icon-chevron-down").toggleClass("icon-chevron-up");
+	
 	//$("#topNavBar").toggleClass("min").toggleClass("max");
+	//$('#topNavBar').toggleClass("min");
+	//$("#topNavBar").children(".optContent").toggle();
+	//return;
 	if(currMin==1) {
 		$('#topNavBar').animate({
-			'min-height': '80px',
-			'max-height': '80px'
+			'min-height': '50px',
+			'max-height': '50px'
 		}, 500, function() {
     		$("#topNavBar").children(".optContent").toggle();
+    		$("#pullHandle").children("i").toggleClass("icon-chevron-down").toggleClass("icon-chevron-up");
 		}
 	);
 		currMin=0;
@@ -18,7 +22,7 @@ $("#pullHandle").click(function() {
 			'min-height': '1px',
 			'max-height': '1px'
 		}, 500, function() {
-    		
+    		$("#pullHandle").children("i").toggleClass("icon-chevron-down").toggleClass("icon-chevron-up");
 		}
 	);
 		currMin=1; 

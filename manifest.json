@@ -15,6 +15,6 @@
     "storage"
   ],
 
-  "content_scripts": [ {"js": [ "main.js","eventBindings.js","index.htm" ], "matches": [ "http://*/" ]} ],
+  "content_scripts": [ {"js": [ "js/main.js","js/eventBindings.js","index.htm" ], "matches": [ "http://*/" ]} ]
  
 }

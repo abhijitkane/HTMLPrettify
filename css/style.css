@@ -10,10 +10,7 @@
 	max-height: 1px;
 }
 
-#topNavBar.max {
-	min-height: 80px;
-	max-height: 80px;
-}
+
 #topNavBar .optContent {
 	display:none;	
 }
