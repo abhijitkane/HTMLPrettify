@@ -30,8 +30,10 @@ function prettifyHTML(old1) {
 		//iterate thru line
 		tot='-';
 		for(j=0;j<line.length;j++) {
-			if(line[j]=="'") insq=1-insq;
-			else if(line[j]=='"') indq=1-indq;
+
+
+			if(line[j]=="'" && indq==0 && inTag==1) insq=1-insq;
+			else if(line[j]=='"' && insq==0 && inTag==1) indq=1-indq;
 
 			if(inTagName==1 && (line[j]==" " || line[j]=="/" || line[j]==">" || tagname=="<!--")) {
 				inTagName=0;
@@ -69,7 +71,7 @@ function prettifyHTML(old1) {
 			if(inTagName==1) tagname+=line[j];		
 
 
-			if(inTag==1 && line[j]=='/' && insq==0 && indq==0) tot='c';
+			if(inTag==1 && line[j]=='/' && (insq==0 && indq==0)) tot='c';
 		}
 		//op+=getTabs(indent)+"\n";
 	}		
